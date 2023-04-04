@@ -27,3 +27,45 @@ export const movies = [
   { title: "The Lord of the Rings: The Return of the King", director: "Peter Jackson", rating: 8.9, genre: "Adventure" }
 ];
 
+export const pets = [
+    { id: 1, name: "Fluffy", type: "cat", age: 5, owner: "Alice" },
+    { id: 2, name: "Spot", type: "dog", age: 3, owner: "Bob" },
+    { id: 3, name: "Tweety", type: "bird", age: 2, owner: "Charlie" },
+    { id: 4, name: "Mittens", type: "cat", age: 1, owner: "David" },
+    { id: 5, name: "Rufus", type: "dog", age: 7, owner: "Eve" }
+  ];
+export const products2 = [
+    { name: "Product 1", price: 10.99, category: "electronics", availability: true },
+    { name: "Product 2", price: 25.49, category: "clothing", availability: false },
+    { name: "Product 3", price: 7.99, category: "electronics", availability: true },
+    { name: "Product 4", price: 19.99, category: "food", availability: true },
+    { name: "Product 5", price: 12.99, category: "clothing", availability: false }
+  ];
+  export const books2 = [
+    { title: "To Kill a Mockingbird", author: "Harper Lee", genre: "Fiction", publicationYear: 1960 },
+    { title: "1984", author: "George Orwell", genre: "Fiction", publicationYear: 1949 },
+    { title: "The Great Gatsby", author: "F. Scott Fitzgerald", genre: "Fiction", publicationYear: 1925 },
+    { title: "The Catcher in the Rye", author: "J.D. Salinger", genre: "Fiction", publicationYear: 1951 },
+    { title: "Pride and Prejudice", author: "Jane Austen", genre: "Fiction", publicationYear: 1813 },
+    { title: "A Brief History of Time", author: "Stephen Hawking", genre: "Non-fiction", publicationYear: 1988 },
+    { title: "The Immortal Life of Henrietta Lacks", author: "Rebecca Skloot", genre: "Non-fiction", publicationYear: 2010 },
+    { title: "The Da Vinci Code", author: "Dan Brown", genre: "Mystery", publicationYear: 2003 },
+    { title: "Murder on the Orient Express", author: "Agatha Christie", genre: "Mystery", publicationYear: 1934 }
+  ];
+  export const movies2= [
+    { title: "The Dark Knight", director: "Christopher Nolan", genre: "Action", releaseYear: 2008 },
+    { title: "The Godfather", director: "Francis Ford Coppola", genre: "Drama", releaseYear: 1972 },
+    { title: "The Shawshank Redemption", director: "Frank Darabont", genre: "Drama", releaseYear: 1994 },
+    { title: "Forrest Gump", director: "Robert Zemeckis", genre: "Comedy", releaseYear: 1994 },
+    { title: "Pulp Fiction", director: "Quentin Tarantino", genre: "Action", releaseYear: 1994 },
+    { title: "The Hangover", director: "Todd Phillips", genre: "Comedy", releaseYear: 2009 }
+  ];
+
+ export  const restaurants = [
+    { name: 'Pizza Hut', cuisine: 'Italian', location: 'New York', rating: 4.2 },
+    { name: 'Taco Bell', cuisine: 'Mexican', location: 'Los Angeles', rating: 3.8 },
+    { name: 'Panda Express', cuisine: 'Chinese', location: 'San Francisco', rating: 4.5 },
+    { name: 'McDonalds', cuisine: 'Italian', location: 'Chicago', rating: 3.7 },
+    { name: 'Subway', cuisine: 'Chinese', location: 'Seattle', rating: 4.0 },
+  ];
+
