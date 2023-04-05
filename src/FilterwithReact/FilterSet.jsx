@@ -11,6 +11,8 @@ import { RestaurantQ } from './Components/RestaurantQ'
 import { JobQ } from './Components/JobQ'
 import { ShowQ } from './Components/ShowQ'
 import { GymQ } from './Components/GymQ'
+import { ShampooQ } from './Components/ShampooQ'
+import { Movie3Q } from './Components/Movie3Q'
 
 
 // Create a React app that displays a list of employees with their name, age, position, and salary. Implement a feature that allows users to input a salary value and filters the displayed list of employees to show only those whose salary is greater than or equal to the input value, using the filter() function.
@@ -98,5 +100,15 @@ export const Question11= () => {
 export const Question12= () => {
   return (
    <GymQ/>
+  )
+}
+export const Question13= () => {
+  return (
+   <ShampooQ/>
+  )
+}
+export const Question14= () => {
+  return (
+   <Movie3Q/>
   )
 }
