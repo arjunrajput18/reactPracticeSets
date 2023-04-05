@@ -69,3 +69,4 @@ export const products2 = [
     { name: 'Subway', cuisine: 'Chinese', location: 'Seattle', rating: 4.0 },
   ];
 
+ 
