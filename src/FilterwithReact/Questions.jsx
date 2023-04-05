@@ -1,5 +1,5 @@
 import React from 'react'
-import  {Question1,Question2,Question3,Question4,Question5,Question6,Question7,Question8,Question9,Question10,Question11,Question12,Question13,Question14}    from './FilterSet'
+import  {Question1,Question2,Question3,Question4,Question5,Question6,Question7,Question8,Question9,Question10,Question11,Question12,Question13,Question14,Question15,Question16}    from './FilterSet'
 
 
 // Create a React component called Greeting that receives a name prop and displays a message like "Hello, name!" on the DOM.
@@ -33,6 +33,10 @@ export const Questions = () => {
     <li><Question13/></li>
     <hr /> 
     <li><Question14/></li>
+    <hr /> 
+    <li><Question15/></li>
+    <hr /> 
+    <li><Question16/></li>
     <hr /> 
   </ol>
   )
