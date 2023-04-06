@@ -1,5 +1,5 @@
 import React from "react";
-import { Question1,Question2,Question3,Question4 } from "./Set4";
+import { Question1,Question2,Question3,Question4,Question5 } from "./Set4";
 
 export const Questions = () => {
   return (
@@ -18,6 +18,10 @@ export const Questions = () => {
       <hr/>
       <li>
         <Question4 />
+      </li>
+      <hr/>
+      <li>
+        <Question5 />
       </li>
       <hr/>
     </ul>
