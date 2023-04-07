@@ -4,6 +4,8 @@ import { ProductQ } from './Components/ProductQ'
 import { Product2Q } from './Components/Product2Q'
 import { ShowImgQ } from './Components/ShowImgQ'
 import { Users2Q } from './Components/Users2Q'
+import { ChatsQ } from './Components/ChatsQ'
+import { CommentQ } from './Components/CommentQ'
 
 export const Question1 = () => {
   return (
@@ -41,6 +43,20 @@ export const Question5 = () => {
   return (
     <>
        <Users2Q/> 
+    </>
+  )
+}
+export const Question6 = () => {
+  return (
+    <>
+       <ChatsQ/> 
+    </>
+  )
+}
+export const Question7 = () => {
+  return (
+    <>
+       <CommentQ/> 
     </>
   )
 }

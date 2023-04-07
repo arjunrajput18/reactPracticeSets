@@ -117,3 +117,97 @@ export const fakeFetch4 = (url) => {
     }, 2000)
   })
 }
+
+
+export const fakeFetch5= (url) => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      if (url === 'https://example.com/api/userchat') {
+        resolve({
+          status: 200,
+          message: 'Success',
+          data: [
+            {
+              name: 'Alia',
+              messages: [
+                {
+                  from: 'Alia',
+                  message: 'Good Morning',
+                },
+                {
+                  from: 'Ranvir',
+                  message: 'Good Morning, How are you?',
+                },
+              ],
+            },
+            {
+              name: 'Jeena',
+              messages: [
+                {
+                  from: 'Jeena',
+                  message: 'When is the meeting scheduled?',
+                },
+                {
+                  from: 'Seema',
+                  message: 'It is at 10AM tomorrow.',
+                },
+              ],
+            },
+            {
+              name: 'Abhay',
+              messages: [
+                {
+                  from: 'Abhay',
+                  message: 'Have you found a house yet?',
+                },
+                {
+                  from: 'John',
+                  message: 'No luck yet, still searching.',
+                },
+                {
+                  from: 'Abhay',
+                  message:
+                    'Hey, an apartment just got vacant in my bulding. Do you wanna have a look?',
+                },
+              ],
+            },
+          ],
+        })
+      } else {
+        reject({
+          status: 404,
+          message: 'users chat not found.',
+        })
+      }
+    }, 2000)
+  })
+}
+
+export const fakeFetch6 = (url) => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      if (url === 'https://example.com/api/comments') {
+        resolve({
+          status: 200,
+          message: 'Success',
+          data: {
+            comments: [
+              {
+                name: 'Raju',
+                text: 'Hello how are you long time no see!!!',
+              },
+              { name: 'Pankaj', text: 'Party when??' },
+              { name: 'Sakshi', text: 'Where are you currently staying' },
+              { name: 'Kishore', text: 'Hello Buddy!!' },
+            ],
+          },
+        })
+      } else {
+        reject({
+          status: 404,
+          message: 'No comments Found',
+        })
+      }
+    }, 2000)
+  })
+}
