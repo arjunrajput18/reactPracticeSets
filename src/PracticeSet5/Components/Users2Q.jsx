@@ -11,7 +11,7 @@ const [loading,setLoading]=useState(true)
       );
       status === 200 && setShowData(data);
       setLoading(false)
-      console.log("ibdsfjkb")
+
     } catch ({ status, message }) {
       console.log(status);
     }
@@ -26,7 +26,7 @@ const [loading,setLoading]=useState(true)
       <h1>user feed</h1>
       <ul>
     {  loading?<p>loading....</p>:  showData.map(({ name, image, likes, comments }) => (
-          <li>
+          <li key={name}>
             <img src={image} alt="loading" height={250}/>
             <p>{name}</p>
             <p>likes :{likes}</p>
