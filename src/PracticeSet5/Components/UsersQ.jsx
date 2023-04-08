@@ -9,7 +9,7 @@ export const UsersQ = () => {
   const fakeData = async () => {
 
     try{
-        console.log(1);
+      
         const { status, data } = await fakeFetch(
           "https://example.com/api/users/status"
         );

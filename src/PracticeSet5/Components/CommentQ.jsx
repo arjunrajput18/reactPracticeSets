@@ -8,9 +8,10 @@ const CommentComponent = ({ commentData, setCommentData }) => {
   //   console.log(commentData)
   const handleClick = (data) => {
     const filterData = commentData.filter(({ text }) => data !== text);
-
+console.log("00")
     setCommentData(filterData);
   };
+  console.log("dcc")
 
   return (
     <>
@@ -27,8 +28,10 @@ const CommentComponent = ({ commentData, setCommentData }) => {
 
 export const CommentQ = () => {
   const [commentData, setCommentData] = useState([]);
+  console.log("99")
   const fakeData = async () => {
     try {
+        console.log("ghg")
       const {
         status,
         data: { comments },
@@ -38,13 +41,15 @@ export const CommentQ = () => {
       console.log(error);
     }
   };
-
+  console.log("3")
   useEffect(() => {
+    console.log("12")
     fakeData();
   }, []);
-
+  console.log("7")
   return (
     <>
+    {console.log("-------")}
       <h1>Comments</h1>
       <ul>
         <CommentComponent

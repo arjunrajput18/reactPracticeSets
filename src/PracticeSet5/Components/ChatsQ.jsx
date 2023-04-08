@@ -25,7 +25,6 @@ const [showloading,setShowLoading]=useState(true)
     );
 
     if (status === 200) {
-      console.log(data);
       setShowLoading(false)
       setShowMsg(data);
 
@@ -43,7 +42,7 @@ const [showloading,setShowLoading]=useState(true)
     {showloading && <p>loading....</p>}
      <ul>
         {  showMsg.map(({ name, messages }) => (
-          <li>
+          <li key={name}>
             <h1>{name}`s Chat</h1>
           <ListComponent name={name} messages={messages}/>
           </li>
