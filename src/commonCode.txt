@@ -1,0 +1,26 @@
+export const Question4=()=>{
+const []=useState()
+const[loading,setLoadind]=useState(false)
+
+const fakeData=async (url)=>{
+try{
+const {status,data}=await fakeFetch4(url)
+if(status===200){
+   setLoadind(true)
+}
+}catch(error){
+console.log(error)
+}
+
+}
+useEffect(()=>{
+    fakeData("")
+},[])
+
+return (
+    <>
+    {loading? <MovieApp showMovies={showMovies} />:"loading..."}
+    </>
+  );
+
+}

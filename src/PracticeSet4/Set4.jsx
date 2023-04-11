@@ -8,6 +8,7 @@ import { BookQ } from './Components/BookQ'
 import { GameQ } from './Components/GameQ'
 
 export const Question1 = () => {
+  // Given an array of characters, build a Tab component in React that shows the name of characters on click of two buttons, one for heroes and other for villains. On click of “Show Heroes” button, a list of heroes should be displayed and on click of “Show Villains” button, a list of villains should be displayed on the DOM. Use useState Hook.
   return (
 <CharQ/>
   )
@@ -25,7 +26,7 @@ export const Question3=()=>{
   )
 }
 
-const todoItems = [
+const items = [
   {id: 1, task: "Writing 1-page poem", isDone: true},
   {id: 2, task: "Gym", isDone: false},
   {id: 3, task: "Shopping", isDone: false},
@@ -33,7 +34,7 @@ const todoItems = [
 ]
 export const Question4=()=>{
   return (
-    <TodoQ todoItems={todoItems}/>
+    <TodoQ items={items}/>
   )
 }
 
