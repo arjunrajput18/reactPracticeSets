@@ -2,9 +2,6 @@ import React, { useState } from 'react'
 
 export const GameQ = () => {
 const [CurrentLives,setCurrentLives]=useState(3)
-
-
-
     return (
     <>
     <h1>Current Lives :{CurrentLives}</h1>
