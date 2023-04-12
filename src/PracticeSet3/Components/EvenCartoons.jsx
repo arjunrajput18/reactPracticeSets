@@ -1,8 +1,16 @@
 import React from 'react'
 
 export const EvenCartoons = ({cartoons}) => {
-  return (
-    cartoons.map(({id, name, superpower, magnitude})=>magnitude%2===0?<h1>{name}</h1>:"")
 
+const filteredCartoons=cartoons.filter(({magnitude})=>magnitude%2===0)
+
+  return (
+  
+  <>
+
+{ filteredCartoons.map(({id, name})=><h1 key={id}>{name}</h1>)
+  }
+  </>
+    
   )
 }

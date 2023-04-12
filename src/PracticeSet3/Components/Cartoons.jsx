@@ -2,10 +2,12 @@ import React from 'react'
 
 export const Cartoons = ({cartoons}) => {
 
+
+const MagnitudeMoreThan5=cartoons.filter(({magnitude})=>magnitude>5)
   return (
 <>
 <ul>
-{cartoons.map(({id, name, superpower, magnitude})=>magnitude>5?<li>name:{name},superpower: {superpower},magnitude:{magnitude}</li>:"")}
+{MagnitudeMoreThan5.map(({id, name, superpower, magnitude})=><li key={id}>name: {name},superpower: {superpower},magnitude:{magnitude}</li>)}
 </ul>
 
 </>
