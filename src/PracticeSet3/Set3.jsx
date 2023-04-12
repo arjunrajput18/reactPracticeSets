@@ -12,8 +12,10 @@ import {StudentDetails} from "./Components/StudentDetails"
 // Build a React component which takes an image, image height and image width as props and sets the height and width of the image and displays the image on DOM. Image link - https://picsum.photos/200
 
 export const Question1 = () => {
+  // Build a React component which takes an image, image height and image width as props and sets the height and width of the image and displays the image on DOM. Image link - https://picsum.photos/200
+
   return (
-    <ShowImg link={"https://picsum.photos"} height={"100"} width={"200"}/>
+    <ShowImg link={"https://picsum.photos/200"} height={100} width={200}/>
   )
 }
 

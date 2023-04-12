@@ -3,6 +3,5 @@ import React from 'react'
 export const ShowImg = ({link,height,width}) => {
   console.log(link+"/"+width+"/"+height)
     return (
- <img src={link+"/"+width+"/"+height} />
-  )
+      <img src={link} style={{height: height, width: width}} alt="random" />  )
 }
