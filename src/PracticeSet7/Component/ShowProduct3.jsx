@@ -1,5 +1,12 @@
 import React from "react";
-
+// display: "flex",
+// flexDirection: "row",
+// justifyContent: "space-around",
+// width: "300px",
+// border: "1px solid lightgrey",
+// margin: "auto",
+// padding: "1rem",
+// marginBottom: "2rem",
 export const ShowProduct3 = ({ name, price, quantity, rating }) => {
   return (
     <>
@@ -10,7 +17,6 @@ export const ShowProduct3 = ({ name, price, quantity, rating }) => {
           justifyContent: "space-around",
           width: "300px",
           border: "1px solid lightgrey",
-          margin: "auto",
           padding: "1rem",
           marginBottom: "2rem",
         }}

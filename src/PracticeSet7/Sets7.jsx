@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import {
   fakeFetch,
+  fakeFetch10,
   fakeFetch2,
   fakeFetch3,
   fakeFetch4,
@@ -210,7 +211,7 @@ export const Question6 = () => {
       </select>
       <ul>
         {loading
-          ? selectedMovie.map((movie,i) => <MovieApp2Q {...movie} key={i} />)
+          ? selectedMovie.map((movie, i) => <MovieApp2Q {...movie} key={i} />)
           : "loading..."}
       </ul>
 
@@ -257,81 +258,160 @@ export const Question7 = () => {
       <h1>Products</h1>
       <button onClick={handlerClick}>Sort by Price</button>
       <ul>
-        {sortPrice.map((data,i) => (
-          <ShowProduct {...data} key={i}/>
+        {sortPrice.map((data, i) => (
+          <ShowProduct {...data} key={i} />
         ))}
       </ul>
     </>
   );
 };
 
+export const Question8 = () => {
+  const [product, setProduct] = useState([]);
+  const [sortedProduct, setSortedProduct] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const fakeData = async (url) => {
+    try {
+      const {
+        status,
+        data: { products },
+      } = await fakeFetch8(url);
+      if (status === 200) {
+        setProduct(products);
+        setSortedProduct(products);
+        setLoading(true);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
-export const Question8=()=>{
-const [product,setProduct]=useState([])
-const [sortedProduct,setSortedProduct]=useState([])
-const [loading,setLoading]=useState(false)
-const fakeData=async (url)=>{
-  try{
-const {status,data:{products}}=await fakeFetch8(url)
-if(status===200){
-  setProduct(products)
-  setSortedProduct(products)
-  setLoading(true)
-}
+  useEffect(() => {
+    fakeData("https://example.com/api/products");
+  }, []);
 
-  }catch(error){
-console.log(error)
-  }
-}
+  return (
+    <>
+      <ButtonComponent product={product} setSortedProduct={setSortedProduct} />
 
-useEffect(()=>{
-  fakeData("https://example.com/api/products")
-},[])
+      <ul>
+        {loading
+          ? sortedProduct.map((data, i) => <ShowProduct {...data} key={i} />)
+          : "loading..."}
+      </ul>
+    </>
+  );
+};
 
-
-
-  return (<>
-
-<ButtonComponent  product={product}  setSortedProduct={setSortedProduct}/>
-
-<ul>
-  {loading?sortedProduct.map((data,i)=>
-  <ShowProduct {...data} key={i}/>):"loading..."}
-</ul>
-  </>)
-}
-
-
-export const Question9=()=>{
+export const Question9 = () => {
   // const [productData,setProductData]=useState([])
-  const [sortedRating,setSortedRating]=useState([])
+  const [sortedRating, setSortedRating] = useState([]);
 
-  const fakeData=async (url)=>{
-try{
-const {status,data:{products}}=await fakeFetch9(url)
-if(status===200){
-  // setProductData(products)
-  setSortedRating([...products].sort((a,b)=>b.rating-a.rating))
-}
+  const fakeData = async (url) => {
+    try {
+      const {
+        status,
+        data: { products },
+      } = await fakeFetch9(url);
+      if (status === 200) {
+        // setProductData(products)
+        setSortedRating([...products].sort((a, b) => b.rating - a.rating));
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
-}catch(error){
-console.log(error);
-}
+  useEffect(() => {
+    fakeData("https://example.com/api/products");
+  }, []);
+
+  return (
+    <>
+      <h1>Product</h1>
+      <ul>
+        {sortedRating.map((data, i) => (
+          <ShowProduct3 {...data} key={i} />
+        ))}
+      </ul>
+    </>
+  );
+};
+
+export const Question10 = () => {
+  const [productData, setProductData] = useState([]);
+  const [inputData,setInputData]=useState("")
+  const fakeData = async (url) => {
+    try {
+      const {
+        status,
+        data: { products },
+      } = await fakeFetch10(url);
+      if (status === 200) {
+        setProductData(products);
+       
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  // name.toLowerCase() ==
+  useEffect(() => {
+    fakeData("https://example.com/api/products");
+  }, []);
+
+
+  const HandlerChange=(e)=>{
+    setInputData(e.target.value)
   }
+  // const HandlerChange = (e) => {
+    // const serachVal = e.target.value;
+    // // console.log(serachVal)
+    // const filterSearch = productData.filter((data) => {
+    //   let dataName = data.name.toLowerCase();
+    //   let searchName = serachVal.toLowerCase();
+    //   // let store=""
+    //   for (let i = 0; i < searchName.length; i++) {
 
-  useEffect(()=>{
-    fakeData("https://example.com/api/products")
-  },[])
+    //     if (dataName[i] === searchName[i]) {
+    //       // console.log(dataName[i] ,"1")
+    //       // console.log(i,"23")
+    //     //   // store+=dataName[i]
+    //     //   // console.log(dataName[i]);
+    //     //   // console.log(store);
+    //     //   // return data
+    //     }else{
+    //     //   console.log("sss");
+    //     console.log("false")
+    //       return false
+    //     }
+    //     // console.log(store)
+    //   }
+    //   // console.log(store)
+    //   // console.log(data)
+    //   return  data;
+    // });
 
+    // setSearchData(filterSearch);
+ 
+  // };
 
-  return(<>
-<h1>Product</h1>
-<ul>
+  const filterSearchData=inputData?productData.filter(({name})=>name.toLowerCase().includes(inputData.toLowerCase())) :productData
 
-{sortedRating.map((data)=>
-    <ShowProduct3 {...data} />
-    )}
-</ul>
-
-  </>)
-}
+  return (
+    <>
+      <h1>Products</h1>
+      <input
+        style={{ marginBottom: "2rem" }}
+        placeholder="Search here...."
+        onChange={HandlerChange}
+        value={inputData}
+      />
+      <ul>
+        {filterSearchData.map((data, i) => (
+          <ShowProduct3 {...data} key={i} />
+        ))}
+      </ul>
+    </>
+  );
+};

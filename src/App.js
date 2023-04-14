@@ -1,13 +1,12 @@
-import React from 'react'
-import { Questions } from './PracticeSet7/Questions';
-
+import React from "react";
+import { Questions } from "./PracticeSet8/Questions";
 
 const App = () => {
   return (
     <div>
-<Questions/>
+      <Questions />
     </div>
-  )
-}
+  );
+};
 
 export default App;

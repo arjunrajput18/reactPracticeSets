@@ -8,7 +8,7 @@ const itemList = [
 ];
 // a.  Build a React component that displays a list of items. Display fruits in orange color and vegetables in green color.
 export const MarketQ = () => {
-  const [selectedCategory, setSelectedCategory] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState(itemList);
   const clickHandler = (data) => {
     const FilterData=data==="All"?itemList: itemList.filter(({ category }) => category === data);
     setSelectedCategory(FilterData);

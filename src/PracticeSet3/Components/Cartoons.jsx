@@ -1,8 +1,6 @@
 import React from 'react'
 
 export const Cartoons = ({cartoons}) => {
-
-
 const MagnitudeMoreThan5=cartoons.filter(({magnitude})=>magnitude>5)
   return (
 <>
