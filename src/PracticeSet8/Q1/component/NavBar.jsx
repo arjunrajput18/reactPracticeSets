@@ -2,11 +2,20 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 
 export const NavBar = () => {
+  const getActive = ({ isActive }) => ({
+    color: isActive ? "red" : "",
+  });
   return (
     <div className="navLinks">
-      <NavLink to="/" >Product</NavLink> {" "}
-      <NavLink to="/cart">My Cart</NavLink> {" "}
-      <NavLink to="/wishlist">My Wishlist</NavLink>
+      <NavLink to="/" style={getActive}>
+        Product
+      </NavLink>{" "}
+      <NavLink to="/cart" style={getActive}>
+        My Cart
+      </NavLink>{" "}
+      <NavLink to="/wishlist" style={getActive}>
+        My Wishlist
+      </NavLink>
     </div>
   );
 };
