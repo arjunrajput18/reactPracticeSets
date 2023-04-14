@@ -8,3 +8,12 @@ export const TotalDonation = ({DonationData}) => {
 </>
   )
 }
+
+
+//cars.reduce((acc,{category})=>{
+// if(acc[category]){
+//  acc[category]++
+// }else{
+// acc[categore]=1
+// }
+// },{})

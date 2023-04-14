@@ -28,17 +28,19 @@ export function Todo2Q({ todoItems2 }) {
   
   function handleClick(id) {
     //2
-    const newItems = items.map((item) => {
-      if (item.id === id) {
-        //1===2 F | 2===2
-        return { ...item, isDone: !item.isDone };
-        //{id:1,task:Gym,isDone:false , isDone:true}
-      } else {
-        return item;
-        // { id: 1, task: "Writing 1-page poem", isDone: false },
-      }
-    });
+    // const newItems = items.map((item) => {
+    //   if (item.id === id) {
+    //     //1===2 F | 2===2
+    //     return { ...item, isDone: !item.isDone };
+    //     //{id:1,task:Gym,isDone:false , isDone:true}
+    //   } else {
+    //     return item;
+    //     // { id: 1, task: "Writing 1-page poem", isDone: false },
+    //   }
+    // });
     //
+
+    const newItems=items.map((item)=>item.id===id?{...item, isDone:!item.isDone}:item)
     setItems(newItems);
   }
 
@@ -59,3 +61,28 @@ export function Todo2Q({ todoItems2 }) {
     </ul>
   );
 }
+
+
+
+
+// const ListItems = ({ id, task, isDone }) => { //poem false
+//   const [toggle, setToggle] = useState(isDone); //false
+
+//   const clickHandler = () => setToggle(!toggle)//
+
+//   return (
+//     <li style={{ color: toggle ? "red" : "black", textDecoration: toggle ? "line-through" : "none" }}>{task} <button onClick={clickHandler}>Mark as Done</button></li>
+//   )
+// }
+
+// export const Todo1 = ({ todoItems }) => {
+//   return (
+//     <ul>
+//       {
+//         todoItems.map(({ id, task, isDone }) => {
+//           return <ListItems key={id} task={task} isDone={isDone} /> 
+//         })
+//       }
+//     </ul>
+//   )
+// }

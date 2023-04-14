@@ -9,7 +9,7 @@ console.log(!superPowerIntelligence)
     <>
       <ul>
         {superPowerIntelligence && superPowerIntelligence.map(({ id, name, superpower, magnitude }) => (
-          <li>
+          <li key={id}>
             {name} - {superpower} - {magnitude}
           </li>
         ))}

@@ -142,8 +142,13 @@ export const Question6=()=>{
   // 2. sunflower
 
 export const Question7=()=>{
+
+const filterExpensive=bouquet.filter(({price})=>price>2000)
     return(
-        <Expensive  bouquet={bouquet} />
+      <ol>
+        {filterExpensive.map((data)=>
+        <Expensive {...data}/>)}
+     </ol>
     )
 }
 // Given an array of objects representing people who donated money to the NGO. Each object consists of: id, name, amount. Build a React component that takes the data as props and shows the total donation collected on the DOM. Output should be in the format: Total Donation Collected: _amount_
