@@ -47,3 +47,7 @@ export const Question1 = () => {
   );
 };
 //for systematic purpose we used like /product  if we write in navbar /product it will blank but we pass after that /product/id id is 1 it will show first product
+
+
+
+
