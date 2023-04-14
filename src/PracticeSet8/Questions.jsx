@@ -1,20 +1,24 @@
-import React from 'react'
-import { Question1 } from './Sets8'
+import React from "react";
+import { Question1 } from "./Sets8";
 import { BrowserRouter as Router } from "react-router-dom";
-import "./Style.css"
+import "./Style.css";
+import { Cart2Context, CartProvider } from "./Q1/context/Cart2Context";
+
+export { Cart2Context };
 export const Questions = () => {
   return (
-    <Router>
     <ol>
-    <li>
-      <Question1 />
-    </li>
-    <hr />
+      <li>
+        <Router>
+          <CartProvider>
+            <Question1 />
+          </CartProvider>
+        </Router>
+      </li>
+      <hr />
     </ol>
-    </Router>
-  )
-}
-
+  );
+};
 
 //1) BrowserRouter
 //2) NavBar && Routes
