@@ -13,6 +13,7 @@ export const ProductDetails = ({ productData }) => {
   console.log(product);
   return (
     <>
+    <h1>About</h1>
       <ul>
         <ProductCard {...product} />
       </ul>

@@ -1,21 +1,32 @@
 import React from "react";
-import { Question1 } from "./Sets8";
+import {  Question2 } from "./Sets8";
 import { BrowserRouter as Router } from "react-router-dom";
 import "./Style.css";
 import { Cart2Context, CartProvider } from "./Q1/context/Cart2Context";
+import { WishlistProvider } from "./Q1/context/WishListContext";
 
 export { Cart2Context };
 export const Questions = () => {
   return (
     <ol>
+          <Router>
       <li>
-        <Router>
+  
           <CartProvider>
-            <Question1 />
+          <WishlistProvider>
+            {/* <Question1 /> */}
+           
+            </WishlistProvider>
           </CartProvider>
-        </Router>
+    
       </li>
       <hr />
+      <li>
+    
+      <Question2/>
+    
+      </li>
+      </Router>
     </ol>
   );
 };
