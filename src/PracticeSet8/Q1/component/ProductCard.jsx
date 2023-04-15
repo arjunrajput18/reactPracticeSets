@@ -1,6 +1,13 @@
+import { useContext } from "react";
 import { NavLink } from "react-router-dom";
+import { Cart2Context } from "../context/Cart2Context";
+import { WishListContext } from "../context/WishListContext";
 
-export const ProductCard = ({
+export const ProductCard = (dataList) => {
+  const {clickHandler}=useContext(Cart2Context)
+  const {wishListHandler}=useContext(WishListContext)
+
+const {
   id,
   name,
   description,
@@ -9,9 +16,19 @@ export const ProductCard = ({
   category,
   brand,
   hideDetails,
-}) => {
-  //see above product no destructure.
+  hideWishList
+}=dataList
 
+
+
+// const showWishList=()=>{
+// if(!hideWishList&&hideDetails){
+//   return true
+// }else{
+//   return false
+// }
+// }
+  //see above product no destructure.
   return (
     <>
       {
@@ -30,6 +47,8 @@ export const ProductCard = ({
           )}
 
           {hideDetails && <NavLink to={`/product/${id}`}>Visit Item</NavLink>}
+          {hideDetails &&<button onClick={()=>clickHandler(dataList)}>Add to Cart</button>}
+          {!hideWishList &&<button onClick={()=>wishListHandler(dataList)}>Add to wishList</button>}
           <br></br>
 
           <br></br>

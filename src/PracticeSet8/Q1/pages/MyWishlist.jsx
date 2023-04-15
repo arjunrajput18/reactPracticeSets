@@ -11,7 +11,7 @@ export const MyWishlist = () => {
     <ul>
       {wishListData.map((data) => (
         <>
-          <ProductCard {...data} />
+          <ProductCard {...data} hideWishList />
           <button onClick={() => removeWishlistHandler(data.id)}>
             Remove from Wishlist
           </button>
