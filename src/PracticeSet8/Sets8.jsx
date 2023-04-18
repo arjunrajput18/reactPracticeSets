@@ -12,7 +12,9 @@ import { NavBar2 } from "./Q2/Component/NavBar2";
 import { DoneTodo } from "./Q2/Pages/DoneTodo";
 import { OpenTodo } from "./Q2/Pages/OpenTodo";
 import { TodoDetail } from "./Q2/Pages/TodoDetail";
-
+import {Home} from "./Q3/pages/Home"
+import { Answer } from "./Q3/pages/Answer";
+import { Questions } from "./Q3/pages/Questions";
 
 
 export const Question1 = () => {
@@ -69,3 +71,14 @@ export const Question2 = () => {
     </>
   );
 };
+
+export const Question3=()=>{
+return (<>
+ 
+<Routes>
+  <Route path="/" element={<Home/>}></Route>
+  <Route path="/question" element={<Questions/>}></Route>
+  <Route path="/answer/:answerId" element={<Answer/>}></Route>
+</Routes>
+</>)
+}
