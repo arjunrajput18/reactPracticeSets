@@ -16,6 +16,13 @@ import { Home3 } from "./Q3/pages/Home3";
 import { Menu } from "./Q3/pages/Menu";
 import { Cart } from "./Q3/pages/Cart";
 import { NavBar3 } from "./Q3/component/NavBar3";
+import { NavBar4 } from "./Q4/component/NavBar4";
+import { Home4 } from "./Q4/pages/Home4";
+import { LikedVideos } from "./Q4/pages/LikedVideos";
+import { WatchLater } from "./Q4/pages/WatchLater";
+import {  VideosListing } from "./Q4/pages/VideosListing";
+import { VideosDetails } from "./Q4/pages/VideosDetails";
+
 // export const Question1 = () => {
 //   return (
 //     <>
@@ -57,3 +64,17 @@ export const Question3 = () => {
     </>
   );
 };
+
+
+export const Question4=()=>{
+  return (<>
+   <NavBar4/>
+    <Routes>
+      <Route path="/" element={<Home4/>}></Route>
+      <Route path="/videos" element={<VideosListing/>}></Route>
+      <Route path="/videos/:videoTitile" element={<VideosDetails/>}></Route>
+      <Route path="/likedVideos" element={<LikedVideos/>}></Route>
+      <Route path="/watchLater" element={<WatchLater/>}></Route>
+    </Routes>
+  </>)
+}
