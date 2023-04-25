@@ -1,0 +1,76 @@
+const reducer = (state, action) => {
+  switch (action.type) {
+    case "unread":
+      return {
+        ...state,
+        unread: !state.unread, // toggle the unread state
+        filteredMails: state.emailsData.filter(({ unread }) => !state.unread ? unread : true), // update filteredMails based on unread state
+      };
+    case "starred":
+      return {
+        ...state,
+        starred: !state.starred, // toggle the starred state
+        filteredMails: state.emailsData.filter(({ isStarred }) => !state.starred ? isStarred : true), // update filteredMails based on starred state
+      };
+    case "all":
+      return {
+        ...state,
+        filteredMails: state.emailsData, // reset filteredMails to all mails
+        unread: false, // reset unread state
+        starred: false, // reset starred state
+      };
+    default:
+      return state;
+  }
+};
+
+// Update event handlers to dispatch the corresponding action with updated state
+const handleUnread = () => {
+  dispatch({ type: "unread" });
+};
+
+const handleStarred = () => {
+  dispatch({ type: "starred" });
+};
+
+
+
+------------
+import React, { useReducer } from 'react';
+
+// Define initial state
+const initialState = {
+  checked: false
+};
+
+// Define reducer function
+const reducer = (state, action) => {
+  switch (action.type) {
+    case 'TOGGLE_CHECKBOX':
+      return { ...state, checked: !state.checked };
+    default:
+      return state;
+  }
+};
+
+// Define component
+const Checkbox = () => {
+  const [state, dispatch] = useReducer(reducer, initialState);
+
+  const handleCheckboxChange = () => {
+    dispatch({ type: 'TOGGLE_CHECKBOX' });
+  };
+
+  return (
+    <div>
+      <input
+        type="checkbox"
+        checked={state.checked}
+        onChange={handleCheckboxChange}
+      />
+      <label>{state.checked ? 'Checked' : 'Unchecked'}</label>
+    </div>
+  );
+};
+
+export default Checkbox;
