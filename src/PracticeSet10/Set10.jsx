@@ -5,6 +5,7 @@ import { Inbox } from "./pages/Inbox";
 import { Spam } from "./pages/Spam";
 import { Trash } from "./pages/Trash";
 import { Filters } from "./component/Filters";
+import { MailDetails } from "./pages/MailDetails";
 
 export const Set10 = () => {
   return (
@@ -14,7 +15,8 @@ export const Set10 = () => {
       <Routes>
         <Route path="/" element={<Inbox />}></Route>
         <Route path="/spam" element={<Spam />}></Route>
-        <Route path="Trash" element={<Trash />}></Route>
+        <Route path="/trash" element={<Trash />}></Route>
+        <Route path="/inbox/:inboxId" element={<MailDetails />}></Route>
       </Routes>
     </>
   );
