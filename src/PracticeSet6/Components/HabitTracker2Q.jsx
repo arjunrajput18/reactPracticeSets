@@ -13,7 +13,7 @@ export const HabitTracker2Q = ({ showData }) => {
     <>
       <h2>{archivedData ? "Unarchived" : "archived"}</h2>
       {filterData.map(
-        ({ daysFollowed, daysSkipped, archived, desc, title }) => (
+        ({ daysFollowed, daysSkipped,  desc, title }) => (
           <div>
             <h2>{title}</h2>
             <p>{desc}</p>

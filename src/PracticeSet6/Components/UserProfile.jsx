@@ -5,8 +5,9 @@ export const UserProfile = ({ getData,setGetData }) => {
 
 const clickHandler=()=>{
     console.log(getData)
- getData={...getData,name:"Emily"}
- setGetData(getData)
+//  getData={...getData,name:"Emily"}
+
+ setGetData((prevData)=>({...prevData,name:"Emily"}))
 console.log(getData)
 }
 

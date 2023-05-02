@@ -1,7 +1,12 @@
 import { createContext, useEffect, useState } from "react";
 import React from "react";
 import { fakeFetch2 } from "../../Data";
+
+
+
 export const TodoContext = createContext();
+
+
 
 export const TodoProvider = ({ children }) => {
   const [todoData, setTodoData] = useState([]);
@@ -26,6 +31,8 @@ export const TodoProvider = ({ children }) => {
 
   const markDoneHandler = (idR) => {
     console.log(idR);
+
+    console.log()
     setTodoData(
       todoData.map((item) =>
         item.id === idR ? { ...item, isCompleted: !item.isCompleted } : item

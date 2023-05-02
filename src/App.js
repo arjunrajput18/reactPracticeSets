@@ -1,5 +1,5 @@
 import React from "react";
-import { Questions } from "./PracticeSet10/Questions";
+import { Questions } from "./PracticeSet7/Questions";
 
 const App = () => {
   return (

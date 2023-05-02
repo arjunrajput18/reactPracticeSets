@@ -1,5 +1,5 @@
 import React from "react";
-import { Question3 } from "./Sets8";
+import { Question2 } from "./Sets8";
 import { BrowserRouter as Router } from "react-router-dom";
 import "./Style.css";
 import { Cart2Context, CartProvider } from "./Q1/context/Cart2Context";
@@ -21,13 +21,13 @@ export const Questions = () => {
         <hr />
         <li>
           <TodoProvider>
-            {/* <Question2 /> */}
+            <Question2 />
           </TodoProvider>
         </li>
         <hr/>
         <li>
         <ForumProvider>
-        <Question3/>
+        {/* <Question3/> */}
         </ForumProvider>
         </li>
       </Router>

@@ -11,18 +11,15 @@ export default function MovieApp({ showMovies }) {
     checkedVal === "All"
       ? showMovies
       : showMovies.filter(({ year }) => {
-          console.log(typeof year);
-          console.log("k", typeof checkedVal);
           return year === Number(checkedVal);
         });
+
+
+ const movieYear=showMovies.reduce((acc,{year})=>acc.includes(year)?acc:[...acc,year],["All"])
   return (
     <>
       <select onChange={changeHandler}>
-        <option value={"All"}>All</option>
-        <option value={2007}>2007</option>
-        <option value={2008}>2008</option>
-        <option value={2009}>2009</option>
-        <option value={2010}>2010</option>
+      { movieYear.map((data)=><option value={data} key={data}>{data}</option>)}
       </select>
 
       <ul>
