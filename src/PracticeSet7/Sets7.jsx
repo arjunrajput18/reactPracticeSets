@@ -11,7 +11,7 @@ import {
   fakeFetch8,
   fakeFetch9,
 } from "./Data";
-import { WeatherApp } from "./Component/WeatherApp";
+import { ShowWeatherInfo } from "./Component/WeatherApp";
 import { UserDetails } from "./Component/UserDetails2";
 import MovieApp from "./Component/MovieApp";
 import { UserList } from "./Component/UserList";
@@ -20,44 +20,32 @@ import { MovieApp2Q } from "./Component/MovieApp2Q";
 import { ShowProduct } from "./Component/ShowProduct";
 import { ButtonComponent } from "./Component/ButtonComponent";
 import { ShowProduct3 } from "./Component/ShowProduct3";
+
 export const Question1 = () => {
-  // Create a React component that fetches weather data from an API endpoint using useEffect hook and displays the current temperature, humidity, and wind speed on the screen using the useState hook. Add a button which toggles between Celsius and Fahrenheit units for the temperature.
-  const [showData, setShowData] = useState({});
-  const [loading, setLoadind] = useState(false);
-  const fakeData = async (url) => {
+  const [weatherData, setWeatherData] = useState({});
+  const [loading, setLoading] = useState(true)
+  const getWeatherData = async (url) => {
     try {
       const { status, data } = await fakeFetch(url);
-      if (status === 200) {
-        setShowData(data);
-        setLoadind(true);
-      }
-      console.log(data);
-    } catch (error) {
-      console.log(error);
+      status === 200 && setWeatherData(data)
+    } catch (err) {
+      console.log(err);
+    }finally{
+      setLoading(false)
     }
-  };
+  }
+
   useEffect(() => {
-    fakeData("https://example.com/api/weather");
-  }, []);
-
-  const handleConversion = (temperature, buttonToggle) => {
-    // (0°C × 9/5) + 32
-
-    buttonToggle
-      ? setShowData({ ...showData, temperature: (temperature * 9) / 5 + 32 })
-      : setShowData({ ...showData, temperature: (5 / 9) * (temperature - 32) });
-  };
-
+    getWeatherData("https://example.com/api/weather")
+  }, [])
   return (
-    <>
-      {loading ? (
-        <WeatherApp showData={showData} handleConversion={handleConversion} />
-      ) : (
-        "loading..."
-      )}
-    </>
-  );
-};
+    <div>
+      {loading && <h1>Loading...</h1>}
+      {!loading && <ShowWeatherInfo weatherData={weatherData} />}
+
+    </div>
+  )
+}
 
 export const Question2 = () => {
   // Create a React component that fetches user data from an API endpoint using useEffect hook and displays the user's name, email, and phone number on the screen using the useState hook. Add a button which toggles the display of the user's address (street, suite, city, zipcode).
@@ -84,17 +72,20 @@ export const Question2 = () => {
 export const Question3 = () => {
   // Create a React component that fetches a list of movies from an API endpoint using useEffect hook and displays the title, year, and rating of each movie on the screen using the useState hook. Add a dropdown which filters the movies by year. You can keep 5 dropdown values - 2005 to 2010.
   const [showMovies, setShowMovies] = useState([]);
-  const [loading, setLoadind] = useState(false);
+  const [loading, setLoadind] = useState(true);
+  const [errorData,setErrorData]=useState()
 
   const fakeData = async (url) => {
     try {
       const { status, data } = await fakeFetch3(url);
       if (status === 200) {
         setShowMovies(data);
-        setLoadind(true);
+
       }
     } catch (error) {
-      console.log(error);
+      setErrorData(error);
+    }finally{
+      setLoadind(false);
     }
   };
 
@@ -102,7 +93,7 @@ export const Question3 = () => {
     fakeData("https://example.com/api/movies");
   }, []);
 
-  return <>{loading ? <MovieApp showMovies={showMovies} /> : "loading..."}</>;
+  return <div>{loading ?<p>loading...</p>:errorData?<p>{errorData.message}</p> :<MovieApp showMovies={showMovies} /> } </div>;
 };
 
 export const Question4 = () => {
@@ -135,20 +126,20 @@ export const Question5 = () => {
   // const [changeHandler,setChangeHandler]=useState(true)
   const fakeData = async () => {
     try {
-      // console.log("2")
+ 
       setLoading(true);
-      //   console.log(6);
+        console.log(6);
       const randomQuote = await fakeFetch5();
-      //   console.log("r",randomQuote)
+        console.log("r",randomQuote)
       setShowQuotes(randomQuote);
-      //   console.log("3")
+        console.log("3")
       setLoading(false);
     } catch (error) {
       console.log(error);
     }
   };
 
-  // console.log("4")
+  console.log("4")
   useEffect(() => {
     console.log("7");
     fakeData();
@@ -340,7 +331,7 @@ export const Question9 = () => {
 
 export const Question10 = () => {
   const [productData, setProductData] = useState([]);
-  const [inputData,setInputData]=useState("")
+  const [inputData,setInputData]=useState()
   const fakeData = async (url) => {
     try {
       const {
@@ -355,7 +346,7 @@ export const Question10 = () => {
       console.log(error);
     }
   };
-  // name.toLowerCase() ==
+
   useEffect(() => {
     fakeData("https://example.com/api/products");
   }, []);
@@ -364,37 +355,6 @@ export const Question10 = () => {
   const HandlerChange=(e)=>{
     setInputData(e.target.value)
   }
-  // const HandlerChange = (e) => {
-    // const serachVal = e.target.value;
-    // // console.log(serachVal)
-    // const filterSearch = productData.filter((data) => {
-    //   let dataName = data.name.toLowerCase();
-    //   let searchName = serachVal.toLowerCase();
-    //   // let store=""
-    //   for (let i = 0; i < searchName.length; i++) {
-
-    //     if (dataName[i] === searchName[i]) {
-    //       // console.log(dataName[i] ,"1")
-    //       // console.log(i,"23")
-    //     //   // store+=dataName[i]
-    //     //   // console.log(dataName[i]);
-    //     //   // console.log(store);
-    //     //   // return data
-    //     }else{
-    //     //   console.log("sss");
-    //     console.log("false")
-    //       return false
-    //     }
-    //     // console.log(store)
-    //   }
-    //   // console.log(store)
-    //   // console.log(data)
-    //   return  data;
-    // });
-
-    // setSearchData(filterSearch);
- 
-  // };
 
   const filterSearchData=inputData?productData.filter(({name})=>name.toLowerCase().includes(inputData.toLowerCase())) :productData
 

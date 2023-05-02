@@ -2,10 +2,10 @@ import React, { useEffect, useState } from "react";
 import { fakeFetch5 } from "../Data";
 
 
-const ListComponent=({messages,name})=>{
+const ListComponent=({messages})=>{
   return(
     <>
-        <ul key={name}>
+        <ul >
               {messages.map(({ from, message }, i) => (
                 <li key={i}>
                   <b>{from}</b>:{message}
@@ -23,9 +23,9 @@ const [showloading,setShowLoading]=useState(true)
     const { status, data } = await fakeFetch5(
       "https://example.com/api/userchat"
     );
-
+    setShowLoading(false)
     if (status === 200) {
-      setShowLoading(false)
+
       setShowMsg(data);
 
     }
@@ -44,7 +44,7 @@ const [showloading,setShowLoading]=useState(true)
         {  showMsg.map(({ name, messages }) => (
           <li key={name}>
             <h1>{name}`s Chat</h1>
-          <ListComponent name={name} messages={messages}/>
+          <ListComponent  messages={messages}/>
           </li>
         ))}
       </ul>
