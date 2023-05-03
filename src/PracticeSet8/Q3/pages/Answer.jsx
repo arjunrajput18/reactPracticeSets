@@ -8,11 +8,12 @@ export const Answer = () => {
   const { answerId } = useParams();
 
   const showAnswer = forumData.find(({ id }) => id === Number(answerId));
+  console.log(showAnswer)
   console.log("m", showAnswer);
   return (
     <>
       <ul>
-        <ForumCard {...showAnswer} />
+        <ForumCard data={showAnswer} />
       </ul>
     <NavLink to="/question">Show All Question</NavLink>
     </>

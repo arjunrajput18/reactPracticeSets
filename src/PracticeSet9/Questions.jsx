@@ -1,9 +1,9 @@
 import React from "react";
-import {  Question4 } from "./Sets9";
+import {  Question2 } from "./Sets9";
 import { BrowserRouter as Router } from "react-router-dom";
-import { VideoProvider } from "./Q4/context/VideoContext";
+// import { VideoProvider } from "./Q4/context/VideoContext";
 // import { FoodProvider } from "./Q3/context/FoodContext";
-// import {  BookProvider } from './Q2/context/BookContext'
+import {  BookProvider } from './Q2/context/BookContext'
 // import { EmailContextProvider } from './Q1/context/EmailContext'
 export const Questions = () => {
   return (
@@ -16,26 +16,26 @@ export const Questions = () => {
             {/* </EmailContextProvider> */}
           </li>
           <hr />
-          {/* <li key={1}>
+          <li key={1}>
       <BookProvider>
         <Question2/>
       </BookProvider>
 
-    </li> */}
-{/* 
-          <li key={2}>
+    </li>
+
+          {/* <li key={2}>
           <FoodProvider>
             <Question3 />
           </FoodProvider>
           </li> */}
-
+{/* 
           <li key={2}>
           <VideoProvider>
           <Question4 />
           </VideoProvider>
             
      
-          </li>
+          </li> */}
         </ol>
       </Router>
     </>

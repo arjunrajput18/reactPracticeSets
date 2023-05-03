@@ -1,9 +1,9 @@
 import React from "react";
-import { Question2 } from "./Sets8";
+import { Question3 } from "./Sets8";
 import { BrowserRouter as Router } from "react-router-dom";
 import "./Style.css";
 import { Cart2Context, CartProvider } from "./Q1/context/Cart2Context";
-import { WishlistProvider } from "./Q1/context/WishListContext";
+// import { WishlistProvider } from "./Q1/context/WishListContext";
 import { TodoProvider, TodoContext } from "./Q2/Context/TodoContext";
 import {  ForumProvider } from "./Q3/context/ForumContext";
 
@@ -15,19 +15,19 @@ export const Questions = () => {
       <Router>
         <li>
           <CartProvider>
-            <WishlistProvider>{/* <Question1 /> */}</WishlistProvider>
+            {/* <WishlistProvider><Question1 /></WishlistProvider> */}
           </CartProvider>
         </li>
         <hr />
         <li>
           <TodoProvider>
-            <Question2 />
+            {/* <Question2 /> */}
           </TodoProvider>
         </li>
         <hr/>
         <li>
         <ForumProvider>
-        {/* <Question3/> */}
+        <Question3/>
         </ForumProvider>
         </li>
       </Router>

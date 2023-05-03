@@ -4,28 +4,41 @@ import { fakeFetch3 } from "../../Data";
 export const ForumContext = createContext();
 
 export const ForumProvider = ({ children }) => {
-  const [forumData, setForumData] = useState([]);
+  const [forumDataDetails, setForumDataDetails] = useState({
+    forumData:[],
+    loading:true,
+    errorData:null
+  });
 
-  const fakeData = async (url) => {
+  const fakeData = async () => {
     try {
       const {
         status,
         data: { questions },
-      } = await fakeFetch3(url);
+      } = await fakeFetch3("https://example.com/api/questions");
       if (status === 200) {
-        console.log(questions,"q")
-        setForumData(questions);
+      
+        setForumDataDetails((prev)=>({...prev,forumData:questions}));
       }
     } catch (error) {
-      console.log(error);
+      setForumDataDetails((prev)=>({...prev,errorData:error}))
+    }finally{
+      setForumDataDetails((prev)=>({...prev,loading:false}))
     }
   };
 
   useEffect(() => {
-    fakeData("https://example.com/api/questions");
+    fakeData();
   }, []);
+  
+
+  const {forumData,loading,errorData}=forumDataDetails
 
   return (
-    <ForumContext.Provider value={{forumData}}>{children}</ForumContext.Provider>
+    <ForumContext.Provider value={{forumData}}>
+    {loading?<p>loading...</p>:errorData?<h3>{errorData.message}</h3>:
+      <>{children}</>
+    }
+    </ForumContext.Provider>
   );
 };

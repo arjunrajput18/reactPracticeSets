@@ -1,7 +1,8 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-export const ForumCard = ({ id, question, answer, noDetail }) => {
+export const ForumCard = ({data,noDetail}) => {
+  const { id, question, answer }=data
   return (
     <>
       <li>

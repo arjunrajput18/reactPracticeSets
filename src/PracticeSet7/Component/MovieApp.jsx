@@ -3,10 +3,7 @@ import { useState } from "react";
 export default function MovieApp({ showMovies }) {
   const [checkedVal, setCheckedVal] = useState("All");
 
-  const changeHandler = (e) => {
-    setCheckedVal(e.target.value);
-  };
-
+ 
   const filterData =
     checkedVal === "All"
       ? showMovies
@@ -18,7 +15,7 @@ export default function MovieApp({ showMovies }) {
  const movieYear=showMovies.reduce((acc,{year})=>acc.includes(year)?acc:[...acc,year],["All"])
   return (
     <>
-      <select onChange={changeHandler}>
+      <select onChange={(e)=>setCheckedVal(e.target.value)}>
       { movieYear.map((data)=><option value={data} key={data}>{data}</option>)}
       </select>
 
