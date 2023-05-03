@@ -3,9 +3,7 @@ import React, { useState } from "react";
 export const UserList = ({ showUsers }) => {
 const [selectedChecked,setSelectedChecked]=useState("All")
 
-  const changeHandler =(e) => {
-    setSelectedChecked(e.target.value)
-  };
+
 
   const filterData=selectedChecked==="All"?showUsers:showUsers.filter(({company})=>company===selectedChecked)
   return (
@@ -13,7 +11,7 @@ const [selectedChecked,setSelectedChecked]=useState("All")
       <h2>Users</h2>
       <label>
         Filter by Company:
-        <select onChange={changeHandler}>
+        <select onChange={(e)=>setSelectedChecked(e.target.value)}>
           <option value={"All"}>All Companies</option>
           <option value={"XYZ Corp"}>XYZ Corp</option>
           <option value={"ABC Inc"}>ABC Inc</option>

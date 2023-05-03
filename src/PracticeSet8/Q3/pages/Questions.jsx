@@ -10,7 +10,7 @@ export const Questions = () => {
     <ul>
       {forumData.map((data) => (
         <>
-          <ForumCard {...data} noDetail/>
+          <ForumCard data={data} noDetail/>
         </>
       ))}
     </ul>

@@ -19,6 +19,8 @@ import { Questions } from "./Q3/pages/Questions";
 
 export const Question1 = () => {
   const [productData, setProductData] = useState([]);
+  const [loading,setLoading]=useState(true)
+  const[errorData,setErrorData]=useState()
   const fakeData = async (url) => {
     try {
       const {
@@ -29,7 +31,9 @@ export const Question1 = () => {
         setProductData(products);
       }
     } catch (error) {
-      console.log(error);
+      setErrorData(error);
+    }finally{
+      setLoading(false)
     }
   };
 
@@ -39,6 +43,8 @@ export const Question1 = () => {
 
   return (
     <>
+{
+  loading?<p>loading...</p>:errorData?<p>{errorData.message}</p>: <div>
       <NavBar />
       <Routes>
         <Route
@@ -52,6 +58,10 @@ export const Question1 = () => {
           element={<ProductDetails productData={productData} />}
         />
       </Routes>
+      </div>
+}
+
+   
     </>
   );
 };
