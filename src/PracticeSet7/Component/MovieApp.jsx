@@ -13,6 +13,7 @@ export default function MovieApp({ showMovies }) {
 
 
  const movieYear=showMovies.reduce((acc,{year})=>acc.includes(year)?acc:[...acc,year],["All"])
+ 
   return (
     <>
       <select onChange={(e)=>setCheckedVal(e.target.value)}>
