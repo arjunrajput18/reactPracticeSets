@@ -1,13 +1,13 @@
 import React from "react";
-import "./Q2/style.css";
+// import "./Q2/style.css";
 import { Routes, Route } from "react-router-dom";
 // import { Home } from "./Q1/pages/Home";
 import { NavBar1 } from "./Q2/component/NavBar1";
 
-// import { Sent } from "./Q1/pages/Sent";
-// import { Inbox } from "./Q1/pages/Inbox";
-// import { EmailDetail } from "./Q1/pages/EmailDetail";
-// import { SentDetails } from "./Q1/pages/SentDetails";
+import { Sent } from "./Q1/pages/Sent";
+import { Inbox } from "./Q1/pages/Inbox";
+import { EmailDetail } from "./Q1/pages/EmailDetail";
+import { SentDetails } from "./Q1/pages/SentDetails";
 import { Favorite } from "./Q2/pages/Favorite";
 import { Profile } from "./Q2/pages/Profile";
 import { Read } from "./Q2/pages/Read";
@@ -22,20 +22,21 @@ import { LikedVideos } from "./Q4/pages/LikedVideos";
 import { WatchLater } from "./Q4/pages/WatchLater";
 import {  VideosListing } from "./Q4/pages/VideosListing";
 import { VideosDetails } from "./Q4/pages/VideosDetails";
+import { Home } from "./Q1/pages/Home";
 
-// export const Question1 = () => {
-//   return (
-//     <>
-//       <Home />
-//       <Routes>
-//         <Route path="/inbox" element={<Inbox />}></Route>
-//         <Route path="/sent" element={<Sent />}></Route>
-//         <Route path="/inbox/:emailId" element={<EmailDetail />}></Route>
-//         <Route path="/sent/:sentId" element={<SentDetails />}></Route>
-//       </Routes>
-//     </>
-//   );
-// };
+export const Question1 = () => {
+  return (
+    <>
+      <Home />
+      <Routes>
+        <Route path="/inbox" element={<Inbox />}></Route>
+        <Route path="/sent" element={<Sent />}></Route>
+        <Route path="/inbox/:emailId" element={<EmailDetail />}></Route>
+        <Route path="/sent/:sentId" element={<SentDetails />}></Route>
+      </Routes>
+    </>
+  );
+};
 
 export const Question2 = () => {
   return (
